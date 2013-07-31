@@ -6,6 +6,8 @@
 
 /**
  * Correct `block` display not defined in IE 8/9.
+ * 在IE8/9这种不支持Html5的浏览器里，要使用Html5的新标签,先用js创建这些元
+ * 素，然后再把它们设置为块级元素，
  */
 
 article,
@@ -25,6 +27,7 @@ summary {
 
 /**
  * Correct `inline-block` display not defined in IE 8/9.
+ * 同上，设为内联块级
  */
 
 audio,
@@ -35,7 +38,10 @@ video {
 
 /**
  * Prevent modern browsers from displaying `audio` without controls.
+ * 防止把没有controls属性的audio标签也显示出来，实际上在chrome30和FF20
+ * 以上不使用reset都没有发现这个问题
  * Remove excess height in iOS 5 devices.
+ * 在IOS5上去掉没有controls属性的audio标签的多余高度
  */
 
 audio:not([controls]) {
@@ -45,7 +51,10 @@ audio:not([controls]) {
 
 /**
  * Address `[hidden]` styling not present in IE 8/9.
+ * 在IE8/9里正确隐藏含hidden属性的标签
  * Hide the `template` element in IE, Safari, and Firefox < 22.
+ * 在上述浏览器里隐藏template标签，有关template请看
+ * http://www.w3.org/TR/html-templates/
  */
 
 [hidden],
@@ -55,12 +64,24 @@ template {
 
 /* ==========================================================================
    Base
-   ========================================================================== */
+   上面都是针对html5的reset，接下来是基本的reset
+========================================================================== */
 
 /**
  * 1. Set default font family to sans-serif.
+ * 优雅降级的最后一招？默认字体为sans-serif解决不同浏览器甚至不同语言环境
+ * 不同OS下不同的默认字体出现各种千奇百怪的对不齐中英混排错乱的问题，为
+ * 什么是sans-serif？其实这是个generic family代表字母没脚（无衬线）的字体
+ * 另外还有serif和等宽两种generic family
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
+ * IOS5里竖屏转横屏时字体会放大，用webkit私有的这个属性100%解决，较新
+ * 的桌面版本webkit不支持这个的哦，换言之这个东西就是用在safari上的。
+ * 题外话新的chrome已经把webkit换成blink，
+ * 根据他们和mozillia的共识是私有属性都不应该再默认支持，而是用css属性的
+ * 正式写法来写代码，并通过浏览器设置来打开对某些实验性css属性的支持。
+ * 另外-ms-text-size-adjust这个就是诺基亚上的ie用的？
+ * http://dev.w3.org/csswg/css-size-adjust/
  */
 
 html {
@@ -71,6 +92,8 @@ html {
 
 /**
  * Remove default margin.
+ * IE6/7和怪异模式下IE的毛病，浮动的块级元素如果margin是系统默认的就会丢
+ * 掉上下边距
  */
 
 body {
@@ -83,6 +106,7 @@ body {
 
 /**
  * Remove the gray background color from active links in IE 10.
+ * 不解释。
  */
 
 a {
@@ -91,6 +115,9 @@ a {
 
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
+ * 比如在tab切换时，焦点到了A身上，其他浏览器都是给一个虚线框给A的。
+ * 而chrome是个橙色实线框。。。你可试一试 
+ * http://necolas.github.io/normalize.css/和其他网站的区别
  */
 
 a:focus {
@@ -99,6 +126,8 @@ a:focus {
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
+ * 然后作者觉得鼠标划入焦点中的A应该把虚线框隐藏掉，划出再显示虚线框是
+ * 个好主意，就动了这个手脚……
  */
 
 a:active,
@@ -108,11 +137,13 @@ a:hover {
 
 /* ==========================================================================
    Typography
-   ========================================================================== */
+   好了，到了布局========================================================================== */
 
 /**
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
+ * chrome30的h1设置默认就是这么大的，但是如果在sesion和article里就会变成
+ * 相当于h2的大小，作者觉得所有浏览器还是要统一一下的就改了他
  */
 
 h1 {
@@ -122,6 +153,7 @@ h1 {
 
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ * 给有title属性的abbt增加虚线下划线，像FF里显示的一样（作者真细心Orz）
  */
 
 abbr[title] {
@@ -130,6 +162,8 @@ abbr[title] {
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ * 这两个标签好像不怎么提倡用了吧……不过你们也太坏了直接就不出效果了，
+ * IE倒是很老实地继续粗体，chrome30 user agent默认设置很正确啊，旧版本的 * bug？
  */
 
 b,
@@ -138,7 +172,8 @@ strong {
 }
 
 /**
- * Address styling not present in Safari 5 and Chrome.
+ * Address styling not present in Safari 5 and Chrome.‘
+ * 同上，chrome30依旧冇问题
  */
 
 dfn {
@@ -147,6 +182,18 @@ dfn {
 
 /**
  * Address differences between Firefox and other browsers.
+ * FF22的默认为：hr {
+  display: block;
+  height: 2px;
+  border: 1px inset;
+  margin: 0.5em auto 0.5em auto;
+  color: gray;
+  -moz-float-edge: margin-box;
+  -moz-box-sizing: border-box;
+}
+ * 变成一只content-box,只按照content来计算元素尺寸，但仍然显示1像素的边
+ * 框，主要是解决高度和其他浏览器不一致的问题？其他是0。
+ * 
  */
 
 hr {
@@ -157,6 +204,7 @@ hr {
 
 /**
  * Address styling not present in IE 8/9.
+ * 不解释。
  */
 
 mark {
