@@ -471,7 +471,8 @@ textarea {
 
 /**
  * Remove most spacing between table cells.
- * 去掉单元格间的缝隙，css2.1的属性
+ * 去掉单元格间的缝隙，使用css2.1的属性border-collapse
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse
  */
 
 table {
