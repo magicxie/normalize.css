@@ -365,6 +365,9 @@ input {
  * All other form control elements do not inherit `text-transform` values.
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
+ *
+ *这个属性见https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
+ * 
  */
 
 button,
@@ -375,9 +378,11 @@ select {
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
  *    and `video` controls.
+ * 。。。
  * 2. Correct inability to style clickable `input` types in iOS.
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
+ * 加个手指形的鼠标样式给图片式按钮更和谐。
  */
 
 button,
@@ -390,6 +395,7 @@ input[type="submit"] {
 
 /**
  * Re-set default cursor for disabled elements.
+ * 如果是禁用了，就干脆变回普通的指针（为明显为何不用叉掉的样式？）
  */
 
 button[disabled],
@@ -400,6 +406,8 @@ html input[disabled] {
 /**
  * 1. Address box sizing set to `content-box` in IE 8/9.
  * 2. Remove excess padding in IE 8/9.
+ * IE8/9又调皮了，所有方向都有3px的内边距，重置为零。将content-box改为border-box,
+ * 因为他们的border在useragent里默认是medium(3px)，所以算上border的大小后盒子尺寸又和原来一样了
  */
 
 input[type="checkbox"],
@@ -412,6 +420,7 @@ input[type="radio"] {
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
+ * 看来作者是比较爱content-box啊
  */
 
 input[type="search"] {
@@ -424,6 +433,7 @@ input[type="search"] {
 /**
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
+ * OSX，我木有。。。
  */
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -433,6 +443,7 @@ input[type="search"]::-webkit-search-decoration {
 
 /**
  * Remove inner padding and border in Firefox 4+.
+ * mozilla的焦点按钮内还有个小小的虚线框，干掉他。
  */
 
 button::-moz-focus-inner,
@@ -443,7 +454,10 @@ input::-moz-focus-inner {
 
 /**
  * 1. Remove default vertical scrollbar in IE 8/9.
+ * 去掉IE8/9那个难看的XX！again!
  * 2. Improve readability and alignment in all browsers.
+ * 统一下垂直对齐，可以参考下其他属性
+ * http://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&preval=top
  */
 
 textarea {
@@ -457,6 +471,7 @@ textarea {
 
 /**
  * Remove most spacing between table cells.
+ * 去掉单元格间的缝隙
  */
 
 table {
