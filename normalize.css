@@ -142,8 +142,13 @@ a:hover {
 /**
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
- * chrome30的h1设置默认就是这么大的，但是如果在sesion和article里就会变成
+ * chrome30的h1设置默认就是这么大的，但是如果在section和article里就会变成
  * 相当于h2的大小，作者觉得所有浏览器还是要统一一下的就改了他
+ *
+ * 实际上我不喜欢这个reset，因为section和article在排版上已经降低了一个级别，
+ * 所以里面的所有h(n)标签为了排版清晰自动降低一个级别为h(n+1)是完全make sense的，
+ * 要么像以前的版本全都还原，要么别动他
+ * 是不是作者觉得去fix IE的排版错误还不如这样来得简单?
  */
 
 h1 {
