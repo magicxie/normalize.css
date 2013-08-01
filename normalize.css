@@ -116,7 +116,7 @@ a {
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  * 比如在tab切换时，焦点到了A身上，其他浏览器都是给一个虚线框给A的。
- * 而chrome是个橙色实线框。。。你可试一试 
+ * 而chrome是个橙色实线框。。。 
  * http://necolas.github.io/normalize.css/和其他网站的区别
  */
 
@@ -226,6 +226,7 @@ samp {
 
 /**
  * Improve readability of pre-formatted text in all browsers.
+ * 必要时换行
  */
 
 pre {
@@ -234,6 +235,7 @@ pre {
 
 /**
  * Set consistent quote types.
+ * 引号也统一下
  */
 
 q {
@@ -242,6 +244,7 @@ q {
 
 /**
  * Address inconsistent and variable font size in all browsers.
+ * 不解释
  */
 
 small {
@@ -250,6 +253,7 @@ small {
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ * 这玩意儿还会影响行高？先缩小字体再在基线上调整高度
  */
 
 sub,
@@ -274,6 +278,7 @@ sub {
 
 /**
  * Remove border when inside `a` element in IE 8/9.
+ * 恩没错，去掉那个难看的蓝色框
  */
 
 img {
@@ -282,6 +287,7 @@ img {
 
 /**
  * Correct overflow displayed oddly in IE 9.
+ * 不懂
  */
 
 svg:not(:root) {
@@ -294,6 +300,7 @@ svg:not(:root) {
 
 /**
  * Address margin not present in IE 8/9 and Safari 5.
+ * 其他有默认外边距的也都变成0了
  */
 
 figure {
@@ -306,6 +313,7 @@ figure {
 
 /**
  * Define consistent border, margin, and padding.
+ * 又来统一一下！webkit是2px
  */
 
 fieldset {
@@ -316,7 +324,9 @@ fieldset {
 
 /**
  * 1. Correct `color` not being inherited in IE 8/9.
+ * 又是难看的蓝色
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 对准fieldset
  */
 
 legend {
@@ -328,6 +338,7 @@ legend {
  * 1. Correct font family not being inherited in all browsers.
  * 2. Correct font size not being inherited in all browsers.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 不解释
  */
 
 button,
