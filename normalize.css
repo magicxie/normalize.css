@@ -443,7 +443,7 @@ input[type="search"]::-webkit-search-decoration {
 
 /**
  * Remove inner padding and border in Firefox 4+.
- * mozilla的焦点按钮内还有个小小的虚线框，干掉他。
+ * mozilla的按钮获取焦点后内还有个小小的虚线框，干掉他。
  */
 
 button::-moz-focus-inner,
@@ -471,7 +471,7 @@ textarea {
 
 /**
  * Remove most spacing between table cells.
- * 去掉单元格间的缝隙
+ * 去掉单元格间的缝隙，css2.1的属性
  */
 
 table {
