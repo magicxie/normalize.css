@@ -356,6 +356,17 @@ textarea {
     margin: 0; /* 3 */
 }
 
+/*
+* Remove outline in Chomre又是橙色边框！
+*/
+button:focus,
+input:focus,
+select:focus,
+textarea:focus{
+	outline:none;
+}
+
+
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
